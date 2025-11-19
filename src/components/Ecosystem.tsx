@@ -1,4 +1,5 @@
 import { Smartphone, CreditCard, Tv, Code } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const ecosystemItems = [
   {
@@ -25,23 +26,24 @@ const ecosystemItems = [
 
 const Ecosystem = () => {
   return (
-    <section id="ecosystem" className="py-24 sm:py-32 bg-muted/30">
+    <section id="ecosystem" className="py-24 sm:py-32 bg-muted/30 scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
+        <AnimatedSection animation="fade-slide" className="text-center space-y-4 mb-16">
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl">
             Tudo integrado. <span className="text-gradient">Tudo Cardway.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Um ecossistema completo de soluções digitais para o seu negócio crescer.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {ecosystemItems.map((item, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="group bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover-glow animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              animation="slide-up"
+              delay={index * 100}
+              className="group bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover-glow"
             >
               <div className="mb-6">
                 <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -56,7 +58,7 @@ const Ecosystem = () => {
               <p className="text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

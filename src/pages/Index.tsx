@@ -8,8 +8,11 @@ import Plans from "@/components/Plans";
 import Blog from "@/components/Blog";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const Index = () => {
+  useSmoothScroll();
+  
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

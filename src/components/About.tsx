@@ -1,10 +1,11 @@
 import { ArrowRight } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-background">
+    <section id="about" className="py-24 sm:py-32 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+        <AnimatedSection animation="fade-slide" className="max-w-4xl mx-auto text-center space-y-8">
           <div className="inline-block">
             <span className="text-sm font-semibold text-primary uppercase tracking-wider">
               20 anos de conexões inteligentes
@@ -30,7 +31,7 @@ const About = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

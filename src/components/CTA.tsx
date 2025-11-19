@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 const CTA = () => {
   return (
@@ -13,7 +14,7 @@ const CTA = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+        <AnimatedSection animation="scale" className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-white leading-tight">
             A hora de crescer é agora.
           </h2>
@@ -37,7 +38,7 @@ const CTA = () => {
               Fale com um especialista
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
