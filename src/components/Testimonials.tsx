@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
   {
@@ -20,20 +21,21 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 bg-muted/30 overflow-hidden">
+    <section id="testimonials" className="py-24 sm:py-32 bg-muted/30 overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
+        <AnimatedSection animation="fade-slide" className="text-center space-y-4 mb-16">
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl">
             Parceiros que <span className="text-gradient">crescem conosco</span>
           </h2>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className="bg-card border border-border rounded-2xl p-8 space-y-6 hover:border-primary/50 transition-all duration-300 hover-glow animate-fade-in-up"
-              style={{ animationDelay: `${index * 150}ms` }}
+              animation="slide-up"
+              delay={index * 150}
+              className="bg-card border border-border rounded-2xl p-8 space-y-6 hover:border-primary/50 transition-all duration-300 hover-glow"
             >
               <Quote className="w-10 h-10 text-primary/40" />
               
@@ -45,7 +47,7 @@ const Testimonials = () => {
                 <p className="font-semibold text-foreground">{testimonial.author}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.role}</p>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

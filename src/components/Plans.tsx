@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
 
 const plans = [
   {
@@ -45,9 +46,9 @@ const plans = [
 
 const Plans = () => {
   return (
-    <section id="plans" className="py-24 sm:py-32 bg-background">
+    <section id="plans" className="py-24 sm:py-32 bg-background scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
+        <AnimatedSection animation="fade-slide" className="text-center space-y-4 mb-16">
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl">
             Planos sob medida para o seu{" "}
             <span className="text-gradient">crescimento</span>
@@ -55,18 +56,19 @@ const Plans = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Transparência total. Sem taxas escondidas. Sem complicações.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <div
+            <AnimatedSection
               key={index}
-              className={`bg-card border rounded-2xl p-8 space-y-6 transition-all duration-300 animate-fade-in-up ${
+              animation="slide-up"
+              delay={index * 150}
+              className={`bg-card border rounded-2xl p-8 space-y-6 transition-all duration-300 ${
                 plan.featured
                   ? "border-primary shadow-lg shadow-primary/20 scale-105"
                   : "border-border hover:border-primary/50"
               }`}
-              style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.featured && (
                 <div className="inline-block px-3 py-1 rounded-full bg-gradient-primary text-white text-sm font-semibold">
@@ -109,18 +111,18 @@ const Plans = () => {
               >
                 {plan.name === "Corporativo" ? "Falar com consultor" : "Começar agora"}
               </Button>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <AnimatedSection animation="fade" delay={450} className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
             Dúvidas sobre qual plano escolher?
           </p>
           <Button variant="outline" size="lg" className="border-primary/50 hover:bg-primary/5">
             Falar com um especialista Cardway
           </Button>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

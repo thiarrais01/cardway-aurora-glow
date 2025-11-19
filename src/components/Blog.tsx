@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const articles = [
   {
@@ -23,24 +24,25 @@ const articles = [
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-24 sm:py-32 bg-muted/30">
+    <section id="blog" className="py-24 sm:py-32 bg-muted/30 scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16 animate-fade-in">
+        <AnimatedSection animation="fade-slide" className="text-center space-y-4 mb-16">
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl">
             Inovação em <span className="text-gradient">movimento</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Insights, tendências e casos de sucesso do mercado de pagamentos digital.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {articles.map((article, index) => (
-            <article
+            <AnimatedSection
               key={index}
-              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover-glow cursor-pointer animate-fade-in-up"
-              style={{ animationDelay: `${index * 150}ms` }}
+              animation="slide-up"
+              delay={index * 150}
             >
+              <article className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover-glow cursor-pointer h-full">
               <div className="h-48 bg-gradient-secondary relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                 <div className="absolute bottom-4 left-4">
@@ -68,11 +70,12 @@ const Blog = () => {
                   </span>
                 </div>
               </div>
-            </article>
+              </article>
+            </AnimatedSection>
           ))}
         </div>
 
-        <div className="text-center mt-12 animate-fade-in">
+        <AnimatedSection animation="fade" delay={450} className="text-center mt-12">
           <a
             href="#"
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors group"
@@ -80,7 +83,7 @@ const Blog = () => {
             <span className="font-semibold text-lg">Explorar mais insights</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
